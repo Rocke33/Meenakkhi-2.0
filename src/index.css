@@ -1,0 +1,116 @@
+/* Google Fonts — must come first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* 
+  Meenakkhi Sarees — Global CSS
+  Logo-derived color palette: warm earthy brown (#6B4226) + cream + white 
+*/
+@import "tailwindcss";
+
+
+@theme {
+  /* ── Logo-Based Brand Colors ── */
+  --color-brand-brown:        #6B4226;
+
+  --color-brand-brown-dark:   #4A2E1A;
+  --color-brand-brown-mid:    #5C3820;
+  --color-brand-brown-light:  #8B5E3C;
+  --color-brand-cream:        #FAF6F0;
+  --color-brand-warm-white:   #FFF8F2;
+  --color-brand-gold:         #C8962A;
+  --color-brand-gold-light:   #E5B84A;
+  --color-brand-ink:          #2C1A0E;
+  --color-brand-line:         #E8DDD3;
+  --color-brand-muted:        #9C7B65;
+
+  /* ── Typography ── */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-brand-ink);
+  background: var(--color-brand-cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-brand-cream);
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-brand-cream);
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+/* ── Subtle paper grain texture ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-brand-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-brand-brown-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand-brown); }
+
+main, #root { background: transparent; overflow-x: clip; }
+
+/* ── Hide scrollbar but keep scroll ── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ── Cart shake animation ── */
+@keyframes cartShake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+.animate-cart-shake { animation: cartShake .6s ease-in-out infinite; }
+
+/* ── Hero image fade-in ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.animate-fadeIn { animation: fadeIn .5s ease forwards; }
+
+/* ── Skeleton pulse ── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #e8ddd3 25%, #f5ede5 50%, #e8ddd3 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+/* ── Mobile: reduce grain ── */
+@media (max-width: 640px) {
+  body::before { opacity: .012; }
+}
+
+/* ── Safe area for mobile bottom nav ── */
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
