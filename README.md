@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌸 Meenakkhi Sarees — E-Commerce Web Application
 
 A full-stack e-commerce web platform tailored for premium saree retail, featuring real-time inventory management, university campus delivery routing, and Bangladeshi mobile payment integrations.
@@ -27,3 +28,7 @@ A full-stack e-commerce web platform tailored for premium saree retail, featurin
   
 This project is licensed under the MIT License.
 Copyright © Developed by MD Rocke Ahamed
+=======
+# Meenakkhi-2.0
+Menakkhi Sarees — A modern, high-performance e-commerce platform built with React, TypeScript, Tailwind CSS, and Supabase. Features live cart sync, real-time status updates, Bangladeshi mobile banking payment integrations (bKash/Nagad), and university campus delivery routing.
+>>>>>>> a9659a4bb55deb8793fde9d76813190384de9a52
